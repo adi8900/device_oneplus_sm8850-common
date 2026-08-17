@@ -95,6 +95,8 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libprotobuf-cpp-lite.so', 'libprotobuf-cpp-lite-21.12.so'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
         .add_needed('libinput_shim.so'),
+    'vendor/bin/vendor_modprobe.sh': blob_fixup()
+        .regex_replace(r'\n.*OPLUS_FEATURE_WIFI_FTM[\s\S]*?OPLUS_FEATURE_WIFI_FTM.*\n', ''),
     'vendor/etc/perf/perfboostsconfig.xml': blob_fixup()
         .regex_replace(r'Enable="false"', r'Enable="true"'),
     (
