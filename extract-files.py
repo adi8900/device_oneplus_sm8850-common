@@ -95,6 +95,8 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libprotobuf-cpp-lite.so', 'libprotobuf-cpp-lite-21.12.so'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
         .add_needed('libinput_shim.so'),
+    'vendor/etc/perf/perfboostsconfig.xml': blob_fixup()
+        .regex_replace(r'Enable="false"', r'Enable="true"'),
     (
         'vendor/etc/media_codecs_canoe_sku3.xml',
         'vendor/etc/media_codecs_canoe_v2.xml',
